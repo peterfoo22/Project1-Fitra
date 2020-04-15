@@ -1,5 +1,10 @@
-{{all_products['fitra-activity-band'].title}}
+{% assign mainproduct = {{all_products['fitra-activity-band']}} %}
 
-{{all_products['fitra-activity-band'].price | money_without_trailing_zeros}}
+<div>{{mainproduct.description}}</div>
 
-{{all_products['fitra-activity-band'].description}}
+
+<div>{{mainproduct.price | price_with_trailing_zeros}}</div>
+
+{% for image in mainproduct.images %}
+  {{ image | img_url}}
+{%endfor%}
