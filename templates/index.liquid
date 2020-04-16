@@ -7,19 +7,19 @@
 </div>
 
 <div class="product-info">
-  <h2>Hassle Free Fitness Tracking</h2>
+  <h2>{{'product.copy.headline' | t}}</h2>
 </div>
 
 <div class="description">
-  <h3>Information</h3>
-  {{mainproduct.description}}
+  <h3>{{'product.copy.description_headline' | t}}</h3>
+    {{mainproduct.description}}
 </div>
 
 
 <div class="details">
   <ul>
-    <li>Comparison Apps for iOS & Android</li>
-    <li>Preorders Beginning Shipping in September 2020</li>
+    <li>{{'details_list.item1' | t}}</li>
+    <li>{{'details_list.item2' | t}}</li>
   </ul>
 </div>
 
@@ -36,7 +36,7 @@
     {% endfor %}
   </select>
   {{ current_variant.price | money }}
-  <button type="submit" name="add" id="AddToCart">Add to cart</button>
+  <button type="submit" name="add" id="AddToCart">{{'form.submit' | t}}</button>
 </form>
 </div>
 

@@ -12,6 +12,10 @@
     }
   },
   "details_list":{
-
+    "item1":"Comparison Apps for iOS & Android",
+    "item2":"Preorders Beginning Shipping in September 2020"
+  },
+  "form":{
+    "submit":"Preorder"
   }
 }
