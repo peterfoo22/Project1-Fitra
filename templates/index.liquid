@@ -1,28 +1,42 @@
 {% assign mainproduct = {{all_products['fitra-activity-band']}} %}
 
-<div>{{mainproduct.description}}</div>
+<div class = "largesideimage">
+  <div class = "singleproductimage">
+    <img src  = "{{ mainproduct.images[0] | img_url: '700x700'}}">
+  </div>
+</div>
+
+<div class="product-info">
+  <h2>Hassle Free Fitness Tracking</h2>
+</div>
+
+<div class="description">
+  <h3>Information</h3>
+  {{mainproduct.description}}
+</div>
 
 
-<div>{{mainproduct.price | c_with_trailing_zeros}}</div>
+<div class="details">
+  <ul>
+    <li>Comparison Apps for iOS & Android</li>
+    <li>Preorders Beginning Shipping in September 2020</li>
+  </ul>
+</div>
 
-<img src  = "{{ mainproduct.images[0] | img_url: 'medium'}}">
+</div>
 
-<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+<div class="form-wrapper">
+  <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+  <label for="productSelect">{{mainproduct.options.first}}</label>
   <select name="id" id="productSelect">
-    {% for variant in product.variants %}
-      {% if variant.available %}
+    {% for variant in mainproduct.variants %}
         <option value="{{ variant.id }}">
           {{ variant.title }} - {{ variant.price | money_with_currency }}
         </option>
-      {% else %}
-        <option disabled="disabled">
-          {{ variant.title }} - sold out
-        </option>
-      {% endif %}
     {% endfor %}
   </select>
   {{ current_variant.price | money }}
-  <label for="Quantity">quantity</label>
-  <input type="number" id="Quantity" name="quantity" value="1" min="1">
   <button type="submit" name="add" id="AddToCart">Add to cart</button>
 </form>
+</div>
+
