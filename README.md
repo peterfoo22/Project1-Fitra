@@ -14,3 +14,5 @@ Also learned about using different filters for the objects and looking up the re
  4/17/2020- Using Locale files for translation, and JSON notation for this file.
  Created an Add to cart form using the basic template from the cart.liquid form and adjusting that to use for my landing page.
 
+4/18/2020-Saturday- Made changes to the cart page using a bit of logic statements whether the cart was filled or not filled.
+Used SASS to implement stylesheets throughout the code.  Alignment of elements using flexbox and grid.
