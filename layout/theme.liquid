@@ -13,6 +13,18 @@
 </head>
 <body>
 
+  {% if template != 'cart' %}
+    <a href="/cart" class = "link-to-cart">
+      {% if cart.item_count > 0 %}
+        {{ "mainpage.filledcart" | t }}
+      {%else%}
+        {{ "mainpage.emptycart" | t }}
+      {%endif%}
+    </a>
+  {% else %}
+    <a href="/">{{ "mainpage.homelink" | t }}</a>
+  {%endif%}
+
   <main role="main">
     {{ content_for_layout }}
   </main>

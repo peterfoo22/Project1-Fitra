@@ -17,5 +17,10 @@
   },
   "form":{
     "submit":"Preorder"
+  },
+  "mainpage":{
+    "filledcart": "Your cart is filled!",
+    "emptycart": "Your cart is empty!",
+    "homelink": "Link to Home"
   }
 }
