@@ -20,4 +20,5 @@ Also learned about using different filters for the objects and looking up the re
 Used SASS to implement stylesheets throughout the code.  Alignment of elements using flexbox and grid.
 
 
-4/19/2020- Continue with CSS styling our index page using our theme.scss.liquid file
+4/19/2020- Continue with CSS styling our index page using our theme.scss.liquid file.  Continue best practices using SASS variables
+to code our CSS files.. Learned about using Mixin files.

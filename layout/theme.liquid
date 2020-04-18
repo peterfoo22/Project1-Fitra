@@ -14,12 +14,18 @@
 <body class = "template-{{template}}" >
 
   {% if template != 'cart' %}
-    <a href="/cart" class = "link-to-cart">
-      {% if cart.item_count > 0 %}
-        {{ "mainpage.filledcart" | t }}
-      {%else%}
-        {{ "mainpage.emptycart" | t }}
-      {%endif%}
+    <a href="/cart" class = "link-to-cart {%if cart.item_count > 0%} cart-filled {%endif%}">
+      <span class="cart-text">
+        {% if cart.item_count > 0 %}
+          {{ "mainpage.filledcart" | t }}
+        {%else%}
+          {{ "mainpage.emptycart" | t }}
+        {%endif%}
+
+      </span>
+      <span class = "item-cart-count">
+        {{cart.item_count}}
+      </span>
     </a>
   {% else %}
     <a href="/">{{ "mainpage.homelink" | t }}</a>

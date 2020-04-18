@@ -10,6 +10,7 @@ $color-label:#707070;
 $label-font-size:12px;
 
 $standard-border: 1px solid $color-border;
+$black-border: 1px solid black;
 
 $line-global:20px;
 $gutter-global:$line-global*2;
@@ -72,19 +73,46 @@ h3{
   line-height: $line-global;
 }
 
+a {
+  text-decoration: none;
+}
+
 label{
   font-size: $label-font-size;
   color:$color-label;
 
 }
 
-select{
+.styled-select{
+  position:relative;
+}
+
+.styled-select select{
   @include reset-input;
   width:100%;
   font-size: $body-font-size;
   line-height: $line-global;
   padding:$line-global;
-  border:$standard-border;
+  border:$black-border;
+}
+
+.styled-select .select-arrow{
+  position: absolute;
+  top:0;
+  right:0;
+  width:$line-global*3;
+  bottom:0;
+  text-align:center;
+  line-height: $line-global*3;
+  border-left:$black-border;
+  pointer-events: none;
+}
+
+.styled-select .select-arrow img{
+  display:inline-block;
+  vertical-align: middle;
+  width:16px;
+  height:16px;
 }
 
 button{
@@ -93,7 +121,7 @@ button{
   font-size: $body-font-size;
   line-height: $line-global;
   padding:$line-global;
-  border:$standard-border;
+  border:$black-border;
   background-color:$color-accent;
   color:$white;
 }
@@ -113,7 +141,7 @@ button{
 .main-content{
   min-height: 100vh;
   padding: $gutter-global;
-  width:46%;
+  width: calc(50% + #{$gutter-global});
   margin-left: auto;
 }
 
@@ -135,7 +163,7 @@ button{
   left:0;
   top: $gutter-global;
   bottom:$gutter-global;
-  width:50%;
+  width: calc(50% - #{$gutter-global/2});
 }
 
 .sticky-sideimage img{
@@ -177,11 +205,53 @@ button{
   line-height:1;
 }
 
+.link-to-cart{
+  position:fixed;
+  top:0;
+  right:0;
+  padding:$gutter-global;
+  color: $color-text;
+}
+
+.link-to-cart .item-cart-count{
+  display: none;
+  font-size:0px;
+  width:10px;
+  height:10px;
+  background-color:wheat;
+  border-radius:100%;
+}
+
+.link-to-cart .cart-text{
+  position:absolute;
+  right:calc(100% - #{$gutter-global}/2);
+  top:$gutter-global;
+  white-space:nowrap;
+  margin-top: 4px;
+}
+
+.link-to-cart:hover .cart-text{
+  display:block;
+}
+
+.link-to-cart.cartfilled .item-cart-count{
+  width:20px;
+  height:20px;
+  background:$color-accent;
+  font-size: $label-font-size;
+  line-height: $line-global;
+  color:red;
+  text-align: center;
+  margin-top: 0px;
+
+}
+
+
 //Index Page CSS Files
 
 #product-info{
   grid-template-rows: minmax(max-content, auto) minmax(min-content, max-content);
-  margin-right: 45px;
+  grid-row-gap:$gutter-global;
 }
 
 
