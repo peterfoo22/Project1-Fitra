@@ -5,9 +5,34 @@ $black: #000000;
 $white: #ffffff;
 $color-accent: #FF3700;
 $color-text: #555555;
+$color-border: #DEDEDE;
+$color-label:#707070;
+$label-font-size:12px;
+
+$standard-border: 1px solid $color-border;
 
 $line-global:20px;
 $gutter-global:$line-global*2;
+
+$body-font-size:15px;
+
+@mixin reset-input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -text-align: left;
+}
 
 //Base
 
@@ -24,11 +49,54 @@ html,body{
   line-height: $line-global;
 }
 
-h1, h2, h3, h4, h5, h6, p{
+h1, h2, h3, h4, h5, h6, p, ul, ol{
   margin:0;
   padding:0;
+  font-weight: 400;
 }
 
+p, ul, ol{
+  font-size: $body-font-size;
+  line-height: $line-global;
+  color: $color-text;
+}
+
+
+h2{
+  font-size: $body-font-size*2;
+  line-height: $line-global;
+}
+
+h3{
+  font-size:$body-font-size;
+  line-height: $line-global;
+}
+
+label{
+  font-size: $label-font-size;
+  color:$color-label;
+
+}
+
+select{
+  @include reset-input;
+  width:100%;
+  font-size: $body-font-size;
+  line-height: $line-global;
+  padding:$line-global;
+  border:$standard-border;
+}
+
+button{
+  @include reset-input;
+  width:100%;
+  font-size: $body-font-size;
+  line-height: $line-global;
+  padding:$line-global;
+  border:$standard-border;
+  background-color:$color-accent;
+  color:$white;
+}
 
 //utility class
 
@@ -85,11 +153,40 @@ h1, h2, h3, h4, h5, h6, p{
   height:100%;
 }
 
+.description-content{
+  margin-top: $line-global;
+}
+
+
+.list-with-stroke{
+  list-style-type: none;
+}
+.list-with-stroke li{
+  padding: $line-global 0;
+  border-top: $standard-border;
+
+}
+
+.list-with-stroke li:last-child{
+  padding: $line-global 0;
+  border-bottom: $standard-border;
+}
+
+.headline-big{
+  font-size:22vw;
+  line-height:1;
+}
+
 //Index Page CSS Files
 
 #product-info{
   grid-template-rows: minmax(max-content, auto) minmax(min-content, max-content);
+  margin-right: 45px;
 }
 
+
+#add-to-cart .product-price{
+  float:right;
+}
 
 

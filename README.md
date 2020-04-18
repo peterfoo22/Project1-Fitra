@@ -2,6 +2,8 @@
 
 Super Hi Shopify Theme Development Project #1- Fitra Activity Band
 
+https://testourstore.myshopify.com/
+
 
 4/15/2020-I learned about the different built in objects you can call
 throughout the code that are built in and readers and what they the different objects have inside them.
@@ -16,3 +18,6 @@ Also learned about using different filters for the objects and looking up the re
 
 4/18/2020-Saturday- Made changes to the cart page using a bit of logic statements whether the cart was filled or not filled.
 Used SASS to implement stylesheets throughout the code.  Alignment of elements using flexbox and grid.
+
+
+4/19/2020- Continue with CSS styling our index page using our theme.scss.liquid file

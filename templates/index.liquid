@@ -12,7 +12,7 @@
   <div id="product-info" class = "main-content grid">
 
         <div class = "valign-center">
-          <h1>{{mainproduct.title}}</h1>
+          <h1 class = "headline-big">{{mainproduct.title}}</h1>
         </div>
 
 
@@ -26,11 +26,11 @@
 
         <div class="description">
           <h3>{{'product.copy.description_headline' | t}}</h3>
-            {{mainproduct.description}}
+          <div class="description-content">{{mainproduct.description}}</div>
         </div>
 
         <div class="details">
-          <ul>
+          <ul class = "list-with-stroke">
             <li>{{'details_list.item1' | t}}</li>
             <li>{{'details_list.item2' | t}}</li>
           </ul>
@@ -43,12 +43,14 @@
               <select name="id" id="productSelect">
                 {% for variant in mainproduct.variants %}
                     <option value="{{ variant.id }}">
-                      {{ variant.title }} - {{ variant.price | money_with_currency }}
+                        {{variant.title}}
                     </option>
                 {% endfor %}
               </select>
             {{ current_variant.price | money }}
-            <button type="submit" name="add" id="AddToCart">{{'form.submit' | t}}</button>
+            <button type="submit" name="add" id="add-to-cart">{{'form.submit' | t}}
+              <span class = "product-price">{{mainproduct.price | money_with_currency}}</span>
+            </button>
           </form>
         </div>
 
