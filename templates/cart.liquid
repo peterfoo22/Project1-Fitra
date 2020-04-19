@@ -1,59 +1,86 @@
-<h1>
-  Cart
-  <span>{{cart.item_count}}</span>
-</h1>
-{% if cart.item_count > 0 %}
-  <h2>All preorders ship free this March.</h2>
-  <form action="/cart" method="post" novalidate>
-    <table>
-      <thead>
-        <th colspan="2">Order Summary</th>
-      </thead>
-      <tbody>
-        {% for item in cart.items %}
-          <tr>
-            <td>
-            {{ item.product.title }} &ndash; {{ item.variant.title }}
-            <a href="/cart/change?line={{forloop.index}}&amp;quantity=0">Remove</a>
-            </td>
-            <td>
-              {{ item.line_price | money }}
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+<div id="page-cart">
 
-    <table id="cart-totals">
-      <tbody>
-        <tr>
-          <td>Shipping</td>
-          <td>Free</td>
-        </tr>
-        <tr>
-          <td>Subtotal</td>
-          <td>{{ cart.total_price | money }}</td>
-        </tr>
+  <div class = "sticky-sideimage">
+    <img src="{{'Hero-Cart.jpg' | asset_url}}" alt="">
+  </div>
 
-      </tbody>
-    </table>
+  <div id = "cart" class="main-content grid {%if cart.item_count > 0%} cart-filled {%endif%}">
 
-    <button type="submit" name="checkout">Checkout</button>
-
+    <div class="valign-center">
+      <h1 id = "cart-title" class = "headline-big">
+        Cart
+        <span class = "cart-item-count">{{cart.item_count}}</span>
+      </h1>
     </div>
-  </form>
-    <p>Any questions? support@getfitra.com</p>
 
-{% else %}
+    <div id="cart-content" class = "grid two-columns">
+      {% if cart.item_count > 0 %}
+        <div class="valign-bottom">
+          <h2>
+            All preorders ship free this March.
+          </h2>
+        </div>
+        <div id="cart-form-wrap">
+          <form action="/cart" method="post" novalidate>
+            <table id = "cart-lines">
+              <thead>
+                <th colspan="2">Order Summary</th>
+              </thead>
+              <tbody>
+                {% for item in cart.items %}
+                  <tr>
+                    <td>
+                    {{ item.product.title }} &ndash; {{ item.variant.title }}
+                      <a class = "remove-line" href="/cart/change?line={{forloop.index}}&amp;quantity=0">
+                        <span class="remove-text">Remove</span>
+                       <img class = "remove-x" src="{{'icon-x.svg' | asset_url}}" alt="">
+                      </a>
+                    </td>
+                    <td>
+                      {{ item.line_price | money }}
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
 
-  Cart is empty
+            <table id="cart-totals">
+              <tbody>
+                <tr>
+                  <td>Shipp</td>
+                  <td>Free</td>
+                </tr>
+                <tr>
+                  <td>Subtotal</td>
+                  <td>{{ cart.total_price | money }}</td>
+                </tr>
+              </tbody>
+            </table>
 
-  {% for i in (1..3) %}
-    <div class="empty-line"></div>
-    <div class="empty-line"></div>
-    <div class="empty-line"></div>
-  {% endfor %}
+            <button type="submit" name="checkout">Checkout</button>
 
-  <a href="/">{{ "mainpage.homelink" | t }}</a>
 
-{% endif %}
+        </form>
+        </div>
+
+         <div id="cart-support">
+           <p>Any questions? support@getfitra.com</p>
+         </div>
+
+      {% else %}
+        <div id="cart-empty-lines">
+          Cart is empty
+            {% for i in (1..3) %}
+              <div class="empty-line"></div>
+            {% endfor %}
+        </div>
+
+        <div id="back-to-fitra" class="valign-bottom">
+          <a href="/">{{ "mainpage.homelink" | t }}</a>
+        </div>
+
+      {% endif %}
+    </div>
+
+  </div> <!-- end of main content -->
+</div> <!-- end of pagecart -->

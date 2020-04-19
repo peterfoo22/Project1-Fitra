@@ -22,3 +22,5 @@ Used SASS to implement stylesheets throughout the code.  Alignment of elements u
 
 4/19/2020- Continue with CSS styling our index page using our theme.scss.liquid file.  Continue best practices using SASS variables
 to code our CSS files.. Learned about using Mixin files.
+
+4/20/2020- Worked on Styling cart page.

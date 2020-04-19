@@ -3,9 +3,12 @@
 <div id="page-index" >
 
   <div id = "product-images" class = "sticky-sideimage">
-    <div class = "singleproductimage">
-      <img src  = "{{ mainproduct.images[0] | img_url: 'x1440'}}">
-    </div>
+    {% for image in maindproduct.images %}
+      <div class = "singleproductimage"  {% if image.attached_to_variant? %} data-variant = "{{image.variants.first.id}}"
+           {% endif %} style= "{% if forloop.index > 1 %} display:none; {% endif %} ">
+        <img src  = "{{ image | img_url: 'x1440'}}">
+      </div>
+    {% endfor %}
   </div>
 
   <!--Beginning of Product Info Grid-->
