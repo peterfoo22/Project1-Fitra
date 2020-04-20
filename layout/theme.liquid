@@ -11,6 +11,7 @@
   src="https://code.jquery.com/jquery-3.5.0.slim.min.js"
   integrity="sha256-MlusDLJIP1GRgLrOflUQtshyP0TwT/RHXsI1wWGnQhs="
   crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
   {{ content_for_header }} <!-- Header hook for plugins -->
   {{ 'application.scss.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
@@ -35,7 +36,11 @@
     <a class = "link-to-home" href="/">{{ "mainpage.homelink" | t }}</a>
   {%endif%}
 
-  <main role="main">
+    {% if template != 'cart' and template != 'index' %}
+      {% include "error404" %}
+    {% endif %}
+
+  <main role="main" {% if {{template}} != 'cart' and template != 'index' %} style ="display:none" {% endif %}>
     {{ content_for_layout }}
   </main>
 </body>

@@ -24,3 +24,6 @@ Used SASS to implement stylesheets throughout the code.  Alignment of elements u
 to code our CSS files.. Learned about using Mixin files.
 
 4/20/2020- Worked on Styling cart page with CSS. Used Javascript and JQuery to change picture variants on our index page.
+
+4/21/2020 - Updated the 404 page layout using a snippet to show the page.  Used logic in the index page to make show the 404 page
+when the user is not on page that is found on the site. Added CSS code to for media websites, for more reponsive layout.

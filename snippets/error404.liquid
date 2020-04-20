@@ -1,0 +1,14 @@
+{% assign mainproduct = {{all_products['fitra-activity-band']}} %}
+<div id = "page404"></div>
+  <div id = "product-images" class = "sticky-sideimage">
+      <img src  = "{{ mainproduct.images.first | img_url: 'x1440'}}">
+  </div>
+
+  <div id="content-404" class = "main-content grid">
+    <p>
+    <h1>{{ 'general.404.title' | t }}</h1>
+    <br>
+    <a href="/">Back to Fitra Home Page</a>
+  </div>
+
+</p>
